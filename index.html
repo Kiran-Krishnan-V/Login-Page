@@ -6,39 +6,81 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .wrapper {
+            display: none; /* Initially hide both forms */
+        }
+        .active {
+            display: block; /* Show the active form */
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+            margin-top: 0.5em;
+        }
+    </style>
 </head>
 <body>
-      <div class = "wrapper">
-        <form action="">
-
+    <div id="login-form" class="wrapper active">
+        <form action="login.php" method="post">
             <h1>Login</h1>
 
             <div class="input-box">
-                <input type="text" placeholder="Username or Email" required>
+                <input type="text" id="login-username" name="login-username" placeholder="Username or Email" required>
                 <i class='bx bxs-user'></i>
             </div>
 
-            
-
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
-                <i class='bx bxs-lock' ></i>
+                <input type="password" id="login-password" name="login-password" placeholder="Password" required>
+                <i class='bx bxs-lock'></i>
             </div>
             
-            <div class = "remember-forgot">
-                 <label><input type = "checkbox"> Remember Me </label>
-                 
-                 <a href="#">Forgot Password?</a>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember Me </label>
+                <a href="#" id="forgot-password">Forgot Password?</a>
             </div>
            
-            <button type="submit" class="btn">Login</button>
-              
+            <button type="submit" class="btn">Sign in</button>
+                 
             <div class="register-acc">
-                <p>Don't have an account? <a href=#>Register</a></p>
+                <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
             </div> 
-            
         </form>
-      </div>
+        <p id="login-error-message" class="error-message"></p>
+    </div>
 
+    <div id="signup-form" class="wrapper">
+        <form action="signup.php" method="post">
+            <h1>Register</h1>
+
+            <div class="input-box">
+                <input type="text" name="signup-username" id="signup-username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+             
+            <div class="input-box">
+                <input type="text" name="signup-email" id="signup-email" placeholder="Email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="signup-password" id="signup-password" placeholder="Password" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+            
+            <div class="remember-forgot">
+                <label><input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a></label>
+            </div>
+           
+            <button type="submit" class="btn">Sign Up</button>
+                 
+            <div class="register-acc">
+                <p>Already have an account? <a href="#" id="show-login">Sign In</a></p>
+            </div> 
+        </form>
+        <p id="signup-error-message" class="error-message"></p>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
